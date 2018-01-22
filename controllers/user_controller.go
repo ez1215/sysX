@@ -141,12 +141,14 @@ func (c *UserController) Register()  {
 }
 
 func (c *UserController) List()  {
-	user.ListByPage(utils.Page{})
-	c.TplName="user-list.tpl"
+	//user.ListByPage(utils.Page{})
+	data := user.ListByUser()
+	c.Data["data"] = data
+	c.TplName="sysx/user-list.tpl"
 }
 
 func (c *UserController) AddPage()  {
-	c.TplName="user-add.tpl"
+	c.TplName="sysx/user-add.tpl"
 }
 
 func (c *UserController) DeleteUser()  {

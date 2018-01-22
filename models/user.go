@@ -61,6 +61,13 @@ func ListByPage(page utils.Page) utils.Page  {
 	query.Limit(0,10)
 	fmt.Print("数量:")
 	fmt.Println(query.Count())
+	return page
+}
+
+func ListByUser() []*User  {
+	data := make([]*User, 0)
+	orm.NewOrm().QueryTable(UserTableName()).All(&data)
+	return  data
 }
 
 func DeleteUser(id int) bool {
